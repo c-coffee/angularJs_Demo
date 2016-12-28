@@ -1,0 +1,30 @@
+/**
+ * Created by vol on 2016/12/6.
+ */
+angular.module("myModule",["ng",'ngRoute','ngAnimate']).
+controller('startCtrl',function(){}).
+controller('mainCtrl',function(){}).
+controller('detailCtrl',function(){}).
+controller('myOrderCtrl',function(){}).
+controller('orderCtrl',function(){}).
+config(function($routeProvider){
+$routeProvider.
+when('/start',{
+    templateUrl:'template/start.html',
+    controller:'startCtrl'
+}).when('/main',{
+    templateUrl:'template/main.html',
+    controller:'mainCtrl'
+}).when('/detail',{
+    templateUrl:'template/detail.html',
+    controller:'detailCtrl'
+}).when('/order',{
+    templateUrl:'template/order.html',
+    controller:'orderCtrl'
+}).when('/myOrder',{
+    templateUrl:'template/myOrder.html',
+    controller:'myOrderCtrl'
+}).otherwise({
+    redirectTo:'/start'
+})
+});

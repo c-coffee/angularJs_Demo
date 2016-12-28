@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" ng-controller="myCtrl">
+    <table class="table">
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>生日</th>
+            <th>总分</th>
+        </tr>
+        <tr ng-repeat="student in students" ng-if="student.score>600">
+            <td>{{student.name}}</td>
+            <td>{{student.sex}}</td>
+            <td>{{student.birthday}}</td>
+            <td>{{student.score}}</td>
+        </tr>
+    </table>
+</div>
+<!--使用Controller创建Model数据，学生列表5个学生，每个学生包含姓名、性别、生日、总分这几个属性，把上述数据显示在一个TABLE中，tr必须循环。-->
+<!--提高功能点：仅显示总分在600以上的学生的数据。-->
+<script src="js/angular.js"></script>
+<script>
+    angular.module("myModule",[]).controller("myCtrl",function($scope,$timeout){
+        $scope.students = [{name:"张三",sex:"男",birthday:"1990-4-7",score:620},{name:"里斯",sex:"男",birthday:"1991-4-11",score:660},
+            {name:"王五",sex:"女",birthday:"1992-3-8",score:655},{name:"照六",sex:"男",birthday:"1993-6-17",score:580},
+            {name:"孙琪",sex:"女",birthday:"1990-10-11",score:601}];
+        $timeout(function(){
+            for(var i=0;i<$scope.students.length;i++){
+                $scope.students[i].score += 10;
+            }
+        },3000)
+    });
+</script>
+</body>
+</html>

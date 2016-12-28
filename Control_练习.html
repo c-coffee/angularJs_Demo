@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="myCtrl" class="container">
+    <table class="table">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+        <tr ng-repeat="emp in emps">
+            <td>{{emp.name}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.age}}</td>
+        </tr>
+    </table>
+</div>
+<!--练习：使用controller 创建Model数据-->
+<!--创建一个新的HTML页面，声明一个ngApp，创建一个模块，其中声明一个控制器，创建如下的几个Model数据，在View中显示这些数据：-->
+<!--(1)string-->
+<!--(2)number-->
+<!--(3)boolean-->
+<!--(4)array-->
+<!--(5)object-->
+<!--(6)array[object]-->
+<script src="js/angular.js"></script>
+<script>
+    angular.module("myModule",["ng"]).controller("myCtrl",function($scope){
+        $scope.emps = [{name:"张三",age:20,isMan:true},{name:"李四",age:25,isMan:false},{name:"王五",age:18,isMan:true}];
+    })
+</script>
+</body>
+</html>
